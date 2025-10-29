@@ -12,10 +12,20 @@
         <th>Tipo</th>
         <th>Duracion</th>
     </tr>
-    <tr th:each="peli: ${listaPeli}">
-        <td th:text="${peli.titulo}"></td>
-        <td th:text="${peli.tipo}"></td>
-        <td th:text="${peli.duracion}"></td>
+    <!-- Paginación -->
+    <nav aria-label="Page navigation example" th:if="${resultado.totalPages> 0}">
+        <ul class="pagination">
+            <li class="page-item" th:classappend="${resultado.first} ? 'disabled' : ''">
+                <a class="page-link" th:href="@{/ejemploPag(page=${resultado.number - 1}, size=${resultado.size})}">Anterior</a>
+            </li>
+            <li class="page-item" th:classappend="${resultado.last} ? 'disabled' : ''">
+                <a class="page-link" th:href="@{/ejemploPag(page=${resultado.number + 1}, size=${resultado.size})}">Siguiente</a>
+            </li>
+            <!-- Enlaces a páginas individuales -->
+            <tr th:each="peli: ${resultado.content}">
+            <td th:text="${peli.titulo}"></td>
+            <td th:text="${peli.tipo}"></td>
+            <td th:text="${peli.duracion}"></td>
     </tr>
 </table>
 
