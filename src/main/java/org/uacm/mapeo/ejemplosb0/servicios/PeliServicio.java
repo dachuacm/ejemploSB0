@@ -7,4 +7,5 @@ import java.util.List;
 public interface PeliServicio {
 
     List<Pelicula> consultarPeliculas();
+    List<Pelicula> consultaPeliDurancionEntre(float d1,float d2);
 }

@@ -16,4 +16,9 @@ public class PeliculasServicio implements PeliServicio{
     public List<Pelicula> consultarPeliculas() {
         return repo.findAll();
     }
+
+    @Override
+    public List<Pelicula> consultaPeliDurancionEntre(float d1, float d2) {
+        return repo.findByDuracionBetween(d1,d2);
+    }
 }

@@ -18,7 +18,7 @@ public class ControladorPrincipal {
 
     @RequestMapping( "/" )
     public String listarPeliculas (Model model) {
-        List<Pelicula> datos=servicio.consultarPeliculas();
+        List<Pelicula> datos=servicio.consultaPeliDurancionEntre(1.00f,1.30f);
         model.addAttribute("listaPeli", datos);
         return "index";
     }
