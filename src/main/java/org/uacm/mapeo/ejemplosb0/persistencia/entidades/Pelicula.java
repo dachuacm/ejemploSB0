@@ -1,6 +1,7 @@
 package org.uacm.mapeo.ejemplosb0.persistencia.entidades;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,11 +20,15 @@ import lombok.ToString;
         @Column(name="id_pelicula")
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id;
+
+        @NotBlank(message="El titulo es obligatorio")
         private String titulo;
 
         @Column(name="genero")
+        @Size(min=4,max=10,message="Debe tener entre 4 y 10 caracteres")
         private String tipo;
 
+        @DecimalMin(value="1.30",message="La duración mínima es de 1.30")
         private float duracion;
 
 

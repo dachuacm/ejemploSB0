@@ -10,4 +10,5 @@ public interface PeliServicio {
     List<Pelicula> consultarPeliculas();
     List<Pelicula> consultaPeliDurancionEntre(float d1,float d2);
     Page<Pelicula> consultarPeliculasP(int p,int s);
+    Pelicula agregarPelicual(Pelicula p);
 }

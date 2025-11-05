@@ -32,4 +32,9 @@ public class PeliculasServicio implements PeliServicio{
         Pageable pag=PageRequest.of(p,s);
         return repo.findAll(pag);
     }
+
+    @Override
+    public Pelicula agregarPelicual(Pelicula p) {
+        return repo.save(p);
+    }
 }
