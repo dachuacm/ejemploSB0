@@ -54,7 +54,8 @@ public class ControladorPrincipal {
     }
 
     @GetMapping("/formularioA")
-    public String mostrarForumulario(Pelicula pelicula){
+    public String mostrarForumulario(Pelicula pelicula, Model model){
+       model.addAttribute("valor","algo");
         return "formulario";
     }
 }
