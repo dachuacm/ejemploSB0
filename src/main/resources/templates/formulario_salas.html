@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <titleFormulario Salas</title>
+</head>
+<body>
+<form action="#" th:action="@{/formularioS}" th:object="${sala}" method="post">
+
+    <table>
+        <tr>
+            <td>Nombre:</td>
+            <td><input type="text" th:field="*{nombre}" /></td>
+            <td th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" Error Nombre </td>
+        </tr>
+        <tr>
+            <td>Capacidad:</td>
+            <td><input type="number" th:field="*{capacidad}" /></td>
+            <td th:if="${#fields.hasErrors('capacidad')}" th:errors="*{capacidad}">Error Tipo/td>
+        </tr>
+
+        <tr>
+            <td><button type="submit">Agregar</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

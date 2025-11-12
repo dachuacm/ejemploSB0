@@ -11,6 +11,6 @@ CREATE TABLE salas
 (
     id       INT AUTO_INCREMENT NOT NULL,
     nombre   VARCHAR(255) NULL,
-    capcidad INT NOT NULL,
+    capacidad INT NOT NULL,
     CONSTRAINT pk_salas PRIMARY KEY (id)
 );

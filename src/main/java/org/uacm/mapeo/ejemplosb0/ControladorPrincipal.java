@@ -20,12 +20,12 @@ public class ControladorPrincipal {
     @Autowired
     PeliServicio servicio;
 
-/*    @RequestMapping( "/" )
-    public String listarPeliculas (Model model) {
-        List<Pelicula> datos=servicio.consultaPeliDurancionEntre(1.00f,1.30f);
-        model.addAttribute("listaPeli", datos);
-        return "index";
-    }*/
+   @RequestMapping( "/" )
+    public String index (Model model) {
+        //List<Pelicula> datos=servicio.consultaPeliDurancionEntre(1.00f,1.30f);
+        //model.addAttribute("listaPeli", datos);
+        return "index1";
+    }
 
     @RequestMapping( "/ejemploPag" )
     public String listarPeliculasPag (Model model, @RequestParam(defaultValue="0")int page,@RequestParam(defaultValue="5")int size) {
@@ -55,7 +55,7 @@ public class ControladorPrincipal {
 
     @GetMapping("/formularioA")
     public String mostrarForumulario(Pelicula pelicula, Model model){
-       model.addAttribute("valor","algo");
+       //model.addAttribute("valor","algo");
         return "formulario";
     }
 }
