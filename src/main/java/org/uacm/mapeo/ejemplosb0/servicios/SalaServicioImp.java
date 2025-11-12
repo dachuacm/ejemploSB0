@@ -15,7 +15,7 @@ public class SalaServicioImp implements SalaServicio{
 
     @Override
     public List<Sala> consultaSalas() {
-        return List.of();
+        return repo.findAll();
     }
 
     @Override

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <titleFormulario Salas</title>
+</head>
+<body>
+<form action="#" th:action="@{/formularioF}" th:object="${funcion}" method="post">
+
+    <table>
+        <label for="salas">Selecciona una sala</label>
+        <select id="salas" th:field="*{s}">
+            <option value="">---sala---</option>
+            <option th:each="ss:${salas}"
+                    th:value="${ss.id}"
+                    th:text="${ss.nombre}">
+
+            </option>
+        </select>
+
+        <label for="peliculas">Selecciona una pelicula</label>
+        <select id="peliculas" th:field="*{p}">
+            <option value="">---pelicula---</option>
+            <option th:each="p:${peliculas}"
+                    th:value="#{p}"
+                    th:text="${titulo}">
+
+            </option>
+        </select>
+
+        <tr>
+            <td><button type="submit">Agregar</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

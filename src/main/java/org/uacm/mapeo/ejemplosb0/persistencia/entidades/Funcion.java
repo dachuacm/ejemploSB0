@@ -1,6 +1,8 @@
 package org.uacm.mapeo.ejemplosb0.persistencia.entidades;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +28,12 @@ public class Funcion {
     @JoinColumn(name = "s_id")
     private Sala s;
 
+    @NotBlank(message = "Se debe indicar la hora")
     @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime horario;
 
+    @NotBlank(message = "La fecha es obligatoria")
+    @Future(message = "La fecha debe ser hacia adelante")
     @Temporal(TemporalType.DATE)
     private LocalDate fecha;
 
