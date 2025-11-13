@@ -28,13 +28,19 @@ public class ControladorFunciones {
 
 
     @PostMapping("/formularioF")
-    public String checkFormulario(@Valid Sala sala, BindingResult bres){
+    public String checkFormulario(@Valid Funcion funcion, BindingResult bres, Model model){
+
 
         if(bres.hasErrors()){
-            System.out.println(sala);
-            return "formulario_salas";
+            List<Sala> salas=servicioS.consultaSalas();
+            model.addAttribute("salas",salas);
+            List<Pelicula> peliculas=servicioP.consultarPeliculas();
+            model.addAttribute("peliculas",peliculas);
+            return "formulario_funciones";
         }
-        //servicio.agregaSala(sala);
+
+
+        servicioF.programarFuncion(funcion);
         return "redirect:/";
     }
 

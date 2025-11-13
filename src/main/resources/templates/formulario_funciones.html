@@ -7,27 +7,37 @@
 <body>
 <form action="#" th:action="@{/formularioF}" th:object="${funcion}" method="post">
 
+    <label for="salas">Selecciona una sala</label></td>
+    <td><select id="salas" th:field="*{s}"></td>
+    <option value="">---sala---</option>
+    <option th:each="sala:${salas}"
+            th:value="${sala.id}"
+            th:text="${sala.nombre}">
+
+    </option>
+    </select>
     <table>
-        <label for="salas">Selecciona una sala</label>
-        <select id="salas" th:field="*{s}">
-            <option value="">---sala---</option>
-            <option th:each="ss:${salas}"
-                    th:value="${ss.id}"
-                    th:text="${ss.nombre}">
-
-            </option>
-        </select>
-
-        <label for="peliculas">Selecciona una pelicula</label>
+        <tr>
+        <td><label for="peliculas">Selecciona una pelicula</label>
         <select id="peliculas" th:field="*{p}">
             <option value="">---pelicula---</option>
-            <option th:each="p:${peliculas}"
-                    th:value="#{p}"
-                    th:text="${titulo}">
+            <option th:each="peli:${peliculas}"
+                    th:value="${peli.id}"
+                    th:text="${peli.titulo}">
 
             </option>
-        </select>
-
+        </select> </td>
+        </tr>
+  <tr>     <td>
+            <label for="fecha">Fecha:</label> </td>
+            <td><input type="date" id="fecha" th:field="*{fecha}" /></td>
+      <td th:if="${#fields.hasErrors('fecha')}" th:errors="*{fecha}" Error FEcha </td>
+        </tr>
+        <tr>
+            <td><label for="hora">Hora:</label></td>
+            <td><input type="time" id="hora" th:field="*{horario}" /></td>
+            <td th:if="${#fields.hasErrors('horario')}" th:errors="*{horario}" Error Horario </td>
+        </tr>
         <tr>
             <td><button type="submit">Agregar</button></td>
         </tr>
